@@ -1,10 +1,11 @@
 node{
-  stage('SCM Checkout'){
-  git'https://github.com/sezhiyan/spring-hibernate-maven-webapp'
-  }
-  //get maven home path
-  stage('clear'){
-  def mvn_Home = tool name: 'maven-3', type: 'maven'
-bat 'mvn clean'
+stage('SCM checkout')
+{ 
+git'https://github.com/sezhiyan/spring-hibernate-maven-webapp'
+}
+stage('clean')
+{
+  def mvnHome = tool name: 'maven3', type: 'maven'
+  bat " ${mvnHome}/bin/mvn clean "
 }
 }
