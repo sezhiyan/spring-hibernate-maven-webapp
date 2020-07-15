@@ -3,8 +3,8 @@ node{
   git'https://github.com/sezhiyan/spring-hibernate-maven-webapp'
   }
   //get maven home path
-  stage('Compile-Package'){
+  stage('clear'){
   def mvn_Home = tool name: 'maven-3', type: 'maven'
-bat"${mvn_Home}/bin/mvn package"
+bat 'mvn clean'
 }
 }
