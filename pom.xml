@@ -157,5 +157,10 @@
             <url>http://35.231.243.118:8081/nexus/content/repositories/releases/</url>
         </repository>
     	</distributionManagement>
+	
+	<properties>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+</properties>
 </project>
 
