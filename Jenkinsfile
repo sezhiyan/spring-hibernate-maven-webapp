@@ -1,10 +1,28 @@
-node{
-  stage('SCM Checkout'){
-  git'https://github.com/sezhiyan/spring-hibernate-maven-webapp'
+pipeline {
+
+    agent any
+    tools {
+        maven 'maven' 
+    }
+    stages {
+        stage('Compile stage') {
+            steps {
+                sh "mvn clean compile" 
+        }
+    }
+
+         stage('testing stage') {
+             steps {
+                sh "mvn test"
+        }
+    }
+
+          stage('deployment stage') {
+              steps {
+                sh "mvn deploy"
+        }
+    }
+
   }
-  //get maven home path
-  stage('Compile-Package'){
-  def mvn_Home = tool name: 'maven', type: 'maven'
-sh"${mvn_Home}/bin/mvn package"
-}
+
 }
